@@ -165,7 +165,7 @@ The monthly series shows substantial differences in both the volume and timing o
 Comparing category totals with disease-level counts helps show which diseases account for seasonal peaks. Influenza provides an example within the vaccine-preventable category.
 
 ## 2.3 Influenza and Vaccine-Preventable Diseases
-Between 2022 and 2025, influenza accounted for 84.1% to 94.1% of reported vaccine-preventable disease cases. @fig-influenza-vaccine-dep illustrates this relationship as the monthly curve for influenza closely follows the overall category’s peaks. The low influenza count in 2021 is an exception, so the pattern cannot be described as uniform across all five years. Comparing the two curves shows how much of the category's seasonal variation is associated with this single disease. 
+Between 2022 and 2025, influenza accounted for 81.4% to 94.1% of reported vaccine-preventable disease cases. @fig-influenza-vaccine-dep illustrates this relationship as the monthly curve for influenza closely follows the overall category’s peaks. The low influenza count in 2021 is an exception, so the pattern cannot be described as uniform across all five years. Comparing the two curves shows how much of the category's seasonal variation is associated with this single disease. 
 
 ```{r}
 #| label: fig-influenza-vaccine-dep
