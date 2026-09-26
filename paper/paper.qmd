@@ -44,34 +44,34 @@ vaccine_data <- disease_data |>
 ```
 
 
-Communicable disease surveillance programs help public health agencies understand how infectious disease patterns change over time and provide evidence for targeted population health initiatives. This report analyzes Toronto’s Monthly Communicable Disease Surveillance Data between 2021 and 2025 using monthly case totals across six disease categories and population-adjusted rates to examine seasonal patterns. Vaccine-preventable diseases showed clear winter seasonality, with influenza accounting for 81.4% to 94.1% of reported cases in the category between 2022 and 2025 and reaching an annual rate of 387.0 cases per 100,000 in 2025. These findings highlight influenza as an important target for seasonal prevention efforts and show how surveillance data can be used alongside vaccination coverage to provide evidence in support of public health programming.  
+Communicable disease surveillance programs can help public health agencies track changes in reported illness and plan prevention efforts around recurring seasonal patterns. This report examines Toronto’s Monthly Communicable Disease Surveillance Data from 2021 to 2025, comparing monthly case totals across six disease categories and annual influenza rates. The categories show different seasonal patterns; influenza closely follows the winter peaks in vaccine-preventable disease cases and reached an annual rate of 387.0 cases per 100,000 in 2025. These findings show how surveillance data can support monitoring across diseases and help time influenza vaccination outreach before the winter increase.  
 
 
 # 1. Introduction
-Communicable disease surveillance plays an important role in understanding how infectious diseases affect a population over time. By tracking reported cases across diseases and time periods, public health agencies can identify emerging patterns and support decision-making related to prevention and population health [@HSP_2026]. In Toronto, Toronto Public Health (TPH) publishes a monthly surveillance dataset describing reported cases of a wide range of communicable diseases [@torontoCommunicableData]. This dataset is used to analyze how patterns of illness have changed in the city over recent years.
+Communicable disease surveillance plays an important role in understanding how infectious diseases affect a population over time. By tracking reported cases over time, public health agencies can identify emerging patterns and support decision-making related to public health programming [@HSP_2026]. In Toronto, Toronto Public Health (TPH) publishes a monthly surveillance dataset describing reported cases of a wide range of communicable diseases [@torontoCommunicableData]. 
 
-This report examines Toronto’s Monthly Communicable Disease Surveillance Data between 2021 and 2025, excluding COVID-19. The report considers monthly totals across six broad disease categories to observe prominent seasonal trends and overall volume of reported cases. Particular attention is given to categories with clear seasonal variation, notably vaccine-preventable diseases, which can be used to inform public health programming.
+This report analyzes TPH’s Monthly Communicable Disease Surveillance Data for the years 2021 through 2025, excluding data associated with COVID-19. It compares monthly reported cases across six disease categories, examines influenza’s contribution to vaccine-preventable disease peaks, and considers annual influenza rates alongside national vaccination coverage estimates.
 
-The analysis then focuses on influenza, which accounts for a large proportion of reported vaccine-preventable disease cases and closely follows the category’s seasonal peaks. Trends in annual reported influenza cases and population-adjusted yearly rates are examined together to determine whether changes in reported illness persist after accounting for growth in Toronto’s population. 
+Because the timing and volume of reported cases differ by disease, annual totals alone cannot show when outreach may be most useful or which disease accounts for a category’s increase. Comparing monthly patterns across categories shows that vaccine-preventable cases peak in winter, and that reported cases of influenza account for most volume within the category. A closer look at influenza shows that its population-adjusted annual rate also rose sharply from 2024 to 2025.
 
-These influenza patterns are then considered in the context of vaccination. Annual influenza vaccination is recommended by the Public Health Agency of Canada for most people aged six months or older, with particular emphasis on those who are at increased risk of severe illness [@phacFluShot]. National influenza vaccination coverage estimates provide additional context for interpreting the surveillance findings. Together, the data illustrate how disease surveillance and vaccination coverage estimates can be considered alongside one another to identify opportunities for targeted public health programming, without implying a direct causal relationship between vaccination rates and reported cases. 
-
+These findings show how monthly surveillance can help track seasonal patterns and flag unusual increases across diseases. The influenza pattern can also help TPH plan vaccination outreach before winter activity rises. Section 2 presents the data and observed trends while Section 3 discusses their implications for disease monitoring and vaccination outreach.
 
 # 2. Data
 
 ## 2.1 Toronto Communicable Disease Surveillance Data
 Toronto Public Health (TPH) is responsible for updating and publishing a monthly dataset that describes reported cases of communicable diseases within the City of Toronto. These datasets are made available through the City of Toronto’s Open Data Portal under the title “Monthly Communicable Disease Surveillance Data” [@torontoCommunicableData].
 
-As outlined by TPH, health surveillance programs, such as this one, help identify current public health issues. They also provide evidence to inform policy decisions aimed at reducing health risks and improving population health outcomes [@HSP_2026]. Similarly to TPH, Public Health Ontario (PHO) also provides information on reported disease cases for a variety of infectious diseases, filtered by region [@phoDiseaseTrends2026]. The PHO dataset serves as an alternative to the one used for this report and can be used to expand the analysis to investigate similar trends across multiple health units across Ontario.   
+As outlined by TPH, health surveillance programs, such as this one, help identify current public health issues. They also provide evidence to inform policy decisions aimed at reducing health risks and improving population health outcomes. [@HSP_2026]. Similarly to TPH, Public Health Ontario (PHO) also provides information on reported disease cases for a variety of infectious diseases, filtered by region [@phoDiseaseTrends2026]. The PHO dataset serves as an alternative to the one used for this report and can be used to expand the analysis to investigate similar trends across multiple health units across Ontario.   
 
-Reports from 2021 to 2026 were downloaded from Toronto's Open Data Portal using R [@r2026] and the `opendatatoronto` package [@opendatatoronto2025], with support from `dplyr` [@dplyr2026], `here` [@here2025] and `glue` [@glue2026]. The analysis includes complete calendar years from 2021 to 2025, with revised 2025 annual counts and rates taken from the 2026 report [@torontoCommunicableData]. All plots and tables were created using `ggplot2` [@ggplot22016] and `tinytable` [@tinytable2026], respectively, with support from `readr` [@readr2026].
+Reports from 2021 to 2026 were downloaded using the statistical programming language `R` [@r2026], with select packages `dplyr`, `here` and `glue` [@dplyr2026] [@glue2026] [@here2025]. The analysis includes complete calendar years from 2021 to 2025, with revised 2025 annual counts and rates taken from the 2026 report.
 
 `Python` was used to combine the reports into one dataset with a row for each disease and year [@python2026]. The rows correspond to reported case counts for a selected disease and year. Rows corresponding to COVID-19 were not included as they were out of scope of this report. The cleaned dataset consists of 331 rows, including 79 unique diseases across 6 distinct categories. An outline of the variables as well as their descriptions can be found in @tbl-variables and a sample of the dataset can be found in @tbl-sample. 
 
 
+
 ```{r}
 #| label: tbl-variables
-#| tbl-cap: "Fields found in the cleaned daatset with corresponding description."
+#| tbl-cap: "Fields found in the cleaned dataset with corresponding descriptions."
 #| echo: false
 
 library(tinytable)
@@ -82,7 +82,7 @@ variable_descriptions <- data.frame(Variable = c("Disease", "Disease Category", 
                                                     "The reporting category assigned to the disease.", 
                                                     "Reported case counts for the months of the calendar year.", 
                                                     "Reported case counts for the year of surveillance for a given disease.", 
-                                                    "Rate of cases expressed as cases per 100,000 population for year.", 
+                                                    "Yearly rate expressed as yearly cases per 100,000 population.", 
                                                     "Year of observation."
 
                                                         )
@@ -160,13 +160,12 @@ category_plot <- ggplot(category_monthly, aes(Date, Cases)) +
 category_plot
 ```
 
-The monthly series shows substantial differences in both the volume and timing of reported cases across categories (@fig-monthly-disease-categories). Certain categories show a stronger seasonal structure. Most notably, vaccine-preventable cases are concentrated near the end and beginning of the calendar year, with distinct annual peaks occurring in December and January (December-2023, January-2024, December-2025). In contrast, enteric, food and waterborne diseases and vector-borne and zoonotic diseases rise during the summer months, with the latter peaking in July or August. The contrast shows why annual totals alone are insufficient to describe the timing of reported illness. 
+The monthly series shows substantial differences in both the volume and timing of reported cases across categories (@fig-monthly-disease-categories). Certain categories show a stronger seasonal structure. Most notably, vaccine-preventable cases are concentrated near the end and beginning of the calendar year, with distinct annual peaks occurring in December and January (December-2023, January-2024, December-2025). In contrast, enteric, food and waterborne diseases and vector-borne and zoonotic diseases rise during the summer months, with the latter peaking in July or August. The contrast shows why annual totals alone are insufficient to describe the timing of reported illness. Comparing new months with earlier seasonal patterns can flag unusual increases for closer investigation. 
 
-Further understanding of the factors driving the seasonal trend can be gained by considering the contribution of individual diseases to the overall pattern within each category. The next section demonstrates an example of this analysis by examining influenza's contribution to the prominent seasonal pattern of vaccine-preventable diseases.
-
+Comparing category totals with disease-level counts helps show which diseases account for seasonal peaks. Influenza provides an example within the vaccine-preventable category.
 
 ## 2.3 Influenza and Vaccine-Preventable Diseases
-Influenza accounts for a significant proportion of the vaccine-preventable disease cases ranging from 81.4% to 94.1% between 2022 and 2025. @fig-influenza-vaccine-dep depicts this relationship wherein the monthly curve for influenza closely follows the overall category’s peaks. The low influenza count in 2021 is an exception, so the pattern should not be described as uniform across all five years. Comparing the two curves shows how much of the category's seasonal variation is associated with this single disease. 
+Between 2022 and 2025, Influenza accounted for 84.1% to 94.1% of reported vaccine-preventable disease cases. @fig-influenza-vaccine-dep depicts this relationship wherein the monthly curve for influenza closely follows the overall category’s peaks. The low influenza count in 2021 is an exception, so the pattern cannot be described as uniform across all five years. Comparing the two curves shows how much of the category's seasonal variation is associated with this single disease. 
 
 ```{r}
 #| label: fig-influenza-vaccine-dep
@@ -218,21 +217,23 @@ ggplot(influenza_rates, aes(Year, Rate)) +
   scale_x_continuous(breaks = 2021:2025) +
   scale_y_continuous(limits = c(0, NA)) +
   labs(title = "Annual Influenza Rates",
-       x = NULL, y = "Reported cases per 100,000 population", caption = "Note: Yearly rate of Infleunza in 2021 was 0.6%") +
+       x = NULL, y = "Reported cases per 100,000 population", caption = "Note: Yearly rate of influenza in 2021 was 0.6 reported cases per 100,000") +
   theme(panel.grid.minor = element_blank())
 ```
 
 # 3 Discussion
-## 3.1 Reported Influenze Cases and Vaccination Coverage
-Influenza accounted for a large majority of vaccine-preventable disease cases between 2023 and 2025. The increase is also evident in population-adjusted incidence rates, indicating that the rise in reported cases cannot be explained by Toronto’s population growth alone. Together, these findings make influenza vaccination a particularly relevant focus for prevention, although vaccination coverage is not measured in the Toronto dataset [@torontoCommunicableData].
+## 3.1 Reported Influenza Cases and Vaccination Coverage
+The category comparisons show how monthly surveillance can be used across diseases. Summer increases in enteric, food and waterborne diseases and vector-borne and zoonotic diseases can be monitored against their usual seasonal timing. An unusual increase in any category can prompt closer review of individual diseases and case reports, though these patterns alone cannot establish whether an outbreak has occurred. For vaccine-preventable diseases, the recurring winter increase also provides a practical window for prevention efforts.
+
+Influenza accounted for most reported vaccine-preventable disease cases between 2022 and 2025, and its annual rate increased sharply in 2025. The increase in population-adjusted rates indicates that population growth alone does not explain the rise in reported cases. Influenza vaccination is therefore a relevant focus for outreach before winter activity increases, although vaccination coverage is not measured in the Toronto dataset [@torontoCommunicableData].
 
 According to the Public Health Agency of Canada (PHAC), annual influenza vaccination is recommended for nearly everyone aged six months and older and reduces the risk of infection and flu-related complications. Vaccination also helps limit transmission to others, including those who are at greater risk of severe illness. PHAC identifies people aged 65 and older and adults aged 18-64 with chronic medical conditions as higher risk [@phacFluShot]. The national influenza vaccination coverage target is 80% for the two populations [@canada_srvcs_2026].
 
-PHAC reports that vaccination among adults aged 18-64 without chronic medical conditions was 26.8%, 31.1%, 28.5% and 22.2% in the 2021-2022 through 2024-2025 seasons. In 2024-2025, coverage was 32.3% among adults aged 18-64 with chronic conditions and 63.2% among adults aged 65 and older [@canada_srvcs_2026].
+PHAC reports that vaccination among adults aged 18-64 without chronic medical conditions was under one third from 2021 through 2025. In 2024-2025, coverage was 32.3% among adults aged 18-64 with chronic conditions and 63.2% among adults aged 65 and older [@canada_srvcs_2026].
 
-For the 2025-2026 season, the survey found the main reasons for non-vaccination were the perception of good health, followed by “not getting round to it” [@canada_srvcs_2026]. This may point to a gap in community outreach, particularly in communicating the importance of annual influenza vaccination to people who are not considered high-risk. In 2025, the Minstry of Health Ontario issues an executive notice announcing that publicly funded influenza vaccines were available in pharmacies across the province [@ontarioInfluenza2025]. However, improving access alone may not be sufficient to increase vaccine uptake. Additional resources could therefore be directed toward reducing barriers to participation, including targeted communication campaigns and convenient vaccination clinics in workplaces and campuses.
+For the 2025-2026 season, the survey found the main reasons for non-vaccination were the perception of good health, followed by “not getting round to it” [@canada_srvcs_2026]. This may point to a gap in community outreach, particularly in communicating the importance of annual influenza vaccination to people who are not considered high-risk. In 2025, the Ministry of Health issued an executive notice announcing that publicly funded influenza vaccines were available in pharmacies across Ontario [@ontarioInfluenza2025]. However, improving access alone may not be sufficient to increase vaccine uptake. Additional resources could therefore be directed toward reducing barriers to participation, including targeted communication campaigns and convenient vaccination clinics available in workplaces and campuses.
 
-Timing also matters. Influenza's largest spikes occurred in December 2023, January 2024 and December 2025. Protective antibody levels generally develop about two weeks after vaccination, and influenza vaccination is recommended annually [@phacInfluenzaGuide]. The practical message is to plan early in autumn and receive the vaccine when eligible and available, allowing time for an immune response before seasonal activity increases.
+Timing also matters. Influenza's largest spikes occurred in December 2023, January 2024 and December 2025. Protective antibody levels generally develop about two weeks after vaccination, and influenza vaccination is recommended annually [@phacInfluenzaGuide]. These observed peaks support planning outreach early in autumn and encouraging vaccination when eligible and available, allowing time for an immune response before seasonal activity increases. Continued monthly monitoring can show whether the timing or scale of future increases differs from earlier years.
 
 ## 3.2 Limitations
 A limitation of this analysis is its dependence on consistent reporting and testing for the diseases recorded. Additionally, national coverage estimates may not generalize to the population of Toronto and cannot show that low vaccination uptake caused the city's increase in influenza.

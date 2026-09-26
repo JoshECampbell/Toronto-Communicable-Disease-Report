@@ -1,7 +1,7 @@
 # Communicable Diseases in Toronto: Trends and Implications for Prevention
 
 ## Overview
-Communicable disease surveillance programs help public health agencies understand how infectious disease patterns change over time and provide evidence for targeted population health initiatives. This report analyzes Toronto’s Monthly Communicable Disease Surveillance Data between 2021 and 2025 using monthly case totals across six disease categories and population-adjusted rates to examine seasonal patterns. Vaccine-preventable diseases showed clear winter seasonality, with influenza accounting for 81.4% to 94.1% of reported cases in the category between 2022 and 2025 and reaching an annual rate of 387.0 cases per 100,000 in 2025. These findings highlight influenza as an important target for seasonal prevention efforts and show how surveillance data can be used alongside vaccination coverage to provide evidence in support of public health programming. 
+Communicable disease surveillance programs can help public health agencies track changes in reported illness and plan prevention efforts around recurring seasonal patterns. This report examines Toronto’s Monthly Communicable Disease Surveillance Data from 2021 to 2025, comparing monthly case totals across six disease categories and annual influenza rates. The categories show different seasonal patterns; influenza closely follows the winter peaks in vaccine-preventable disease cases and reached an annual rate of 387.0 cases per 100,000 in 2025. These findings show how surveillance data can support monitoring across diseases and help time influenza vaccination outreach before the winter increase.  
 
 ## Structure
 
