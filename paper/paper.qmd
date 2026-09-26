@@ -1,5 +1,5 @@
 ---
-title: "Communicable Diseases in Toronto: Trends and Implications for Prevention^[All code and data are available at: https://github.com/CampbelSoup/Toronto-Communicable-Disease-Report.]"
+title: "Communicable Diseases in Toronto: Trends and Implications for Prevention^[All code and data are available at: https://github.com/JoshECampbell/Toronto-Communicable-Disease-Report.]"
 author: "Joshua Campbell"
 date: "2026-09-28"
 date-format: "D MMMM YYYY"
