@@ -54,9 +54,9 @@ This report analyzes TPH’s Monthly Communicable Disease Surveillance Data for 
 
 Because the timing and volume of reported cases differ by disease, annual totals alone cannot show when outreach may be most useful or which disease accounts for a category’s increase. Comparing monthly patterns across categories shows that vaccine-preventable cases peak in winter, and that reported cases of influenza account for most of the volume within the category. A closer look at influenza shows that its population-adjusted annual rate also rose sharply from 2024 to 2025.
 
-These findings show how monthly surveillance can help track seasonal patterns and flag unusual increases across diseases. The influenza pattern can also help TPH plan vaccination outreach before winter activity rises. Section 2 presents the data and observed trends while Section 3 discusses their implications for disease monitoring and vaccination outreach.
+These findings show how monthly surveillance can help track seasonal patterns and flag unusual increases across diseases. The influenza pattern can also help TPH plan vaccination outreach before winter activity rises. Section [2](#data) presents the data and observed trends while Section [3](#discussion) discusses their implications for disease monitoring and vaccination outreach.
 
-# 2. Data
+# 2. Data {#data}
 
 ## 2.1 Toronto Communicable Disease Surveillance Data
 Toronto Public Health (TPH) is responsible for updating and publishing a monthly dataset that describes reported cases of communicable diseases within the City of Toronto. These datasets are made available through the City of Toronto’s Open Data Portal under the title “Monthly Communicable Disease Surveillance Data” [@torontoCommunicableData].
@@ -221,7 +221,7 @@ ggplot(influenza_rates, aes(Year, Rate)) +
   theme(panel.grid.minor = element_blank())
 ```
 
-# 3. Discussion
+# 3. Discussion {#discussion}
 ## 3.1 Reported Influenza Cases and Vaccination Coverage
 The category comparisons show how monthly surveillance can be used across diseases. Summer increases in enteric, food and waterborne diseases and vector-borne and zoonotic diseases can be monitored against their usual seasonal timing. An unusual increase in any category can prompt closer review of individual diseases and case reports, though these patterns alone cannot establish whether an outbreak has occurred. For vaccine-preventable diseases, the recurring winter increase also provides a practical window for prevention efforts.
 
