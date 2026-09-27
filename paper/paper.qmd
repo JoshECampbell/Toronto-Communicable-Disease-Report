@@ -23,7 +23,7 @@ execute:
 #| label: setup
 #| include: false
 #| echo: false
-# Code for bringing in the data to that I don't have to reread it for every figure.
+# Code for bringing in the data so that I don't have to reread it for every figure.
 
 library(readr)
 library(dplyr)

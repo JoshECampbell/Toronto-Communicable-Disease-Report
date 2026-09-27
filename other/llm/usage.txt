@@ -1,11 +1,5 @@
 Data Cleaning
 =============
-
-Transcript of all user messages and user-facing assistant replies and progress
-updates in this conversation through the request to save this history.
-System/developer instructions, internal reasoning, tool calls/results, and
-automatically supplied environment/plugin metadata are not included.
-
 User:
 Write a python script that convert the various formats of the raw data into a single, uniform dataset. Keep the format that is consistent with the 2025 data, however, after listing the cases for each of the months I want to simplify the rest into 3 columns: 1. yearly cases (summation of the monthly cases) 2. yearly rate f diease (if available) 3. year. Each row should represent that data of one disease for a full calender year. Do not include the 2026 data as it is not complete. Each row should also have the catgeory of the disease type. Drop COVID-19 or other directly related disease from the dataset as they will not be included in analysis. The script should be well commented and simple to follow.
 
