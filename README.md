@@ -17,7 +17,7 @@ The repo is structured in the following way:
 - */synthetic_data:* Folder containing the synthetic data that was created to simluate the cleaned dataset used for analysis. 
 
 **Paper:**
-- Contains files related to the produced report including quarto document and references.S
+- Contains files related to the produced report including quarto document and references.
 
 ## Disclosure
 Apects of the analysis code were written with support from OpenAI Codex. Similarily, Chat-GPT was used to assist in the editing and reviewing of the writing material. A history of the chats is provided in `other/llm/usage.txt`. All final code and written material was reviewed and tested by author.  
